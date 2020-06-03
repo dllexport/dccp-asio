@@ -4,7 +4,6 @@
 int main() {
     boost::asio::io_context io;
     boost::asio::spawn(io, [&](boost::asio::yield_context yield) {
-        auto bind_ep = boost::asio::ip::dccp::endpoint(boost::asio::ip::make_address_v4("0.0.0.0"), 1234);
         boost::asio::ip::dccp::acceptor acceptor(io, boost::asio::ip::dccp::endpoint(boost::asio::ip::make_address_v4("127.0.0.1"), 1234));
         boost::system::error_code ec;
         while(1) {
